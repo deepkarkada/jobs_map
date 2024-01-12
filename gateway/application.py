@@ -24,16 +24,21 @@ def create_application() -> Flask:
     @app.route('/signup', methods=['GET'])
     def signup():
         return render_template('signup.html')
-
     
     @app.route('/signup', methods=['POST'])
     def signup_post():
         # Get the payload from our incoming request
         #payload = request.get_json(force=True)
+        userinfo = {
+            'email': request.form.get('email'),
+            'name': request.form.get('name'),
+            'password': request.form.get('password')
+        }
+        payload = json.dumps(userinfo)
 
         # Forward the payload to the relevant endpoint in auth
         #response = requests.get(f'http://jobs_map-auth-1:5003/signup')
-        response = requests.post(f'http://jobs_map-auth-1:5002/signup')
+        response = requests.post(f'http://jobs_map-auth-1:5002/signup', data=payload)
         
         return Response(response.content, response.status_code)
         # Forward the response back to the client
