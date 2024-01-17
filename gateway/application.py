@@ -13,9 +13,13 @@ def create_application() -> Flask:
     def logout():
         return 'Logout'
 
+    # @app.route('/profile')
+    # def profile():
+    #     return render_template('profile.html')
+    
     @app.route('/profile')
     def profile():
-        return render_template('profile.html')
+        return render_template('userprofile.html')
 
     @app.route('/login')
     def login():

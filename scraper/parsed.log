@@ -1,0 +1,54 @@
+Position name: Distinguished Principal Software Engineer
+Company: Ariana Solutions
+Job description: Title: Distinguished, Software Engineer
+Client: Walmart
+Location: onsite to any Walmart location 
+Duration: Full Time
+Salary : Market rate
+Job Summary:
+We are looking for an experienced Distinguished Engineer, AI Systems, to help us build the foundation of our Generative AI platform and the eco-system of services. You will work on a wide range of initiatives, whether that's designing robust, secure infrastructure, building large-scale distributed training clusters, deploying LLMs on GPU instances for real-time use cases, or supporting cutting-edge AI research and development, all in our public cloud infrastructure. You will work with a team of AI engineers and researchers to envision the target state of our platform while helping to design and implement key services.
+What you’ll do:
+
+ Design and build fault-tolerant infrastructure to support long-running and large-scale training tasks resilient to failure of individual nodes, using containers and check-pointing libraries.
+ Design and build infrastructure for serving large ML models, in our public cloud.
+ Produce roadmaps across the technical scope, including consulting on objectives and key results across teams, reviewing designs, participating in and resolving technical discussions, and driving engineering investments for Core ML.
+ Design and implement benchmarks to measure the performance of software systems within a Generative AI Platform and make recommendations on technology selection.
+ Develop applications that leverage LLMs and FMs, e.g. conversational AI.
+ Design and implement platform capabilities to support MLOps for foundation models.
+ Algorithm optimization: Optimize AI algorithms and models for improved performance, efficiency, accuracy, and scalability. Apply techniques such as hyperparameter tuning, feature engineering, and model selection to enhance the quality and reliability of AI systems.
+ Collaborate with cross-functional teams: Work closely with researchers, data scientists, and other stakeholders to understand their needs, gather requirements, and develop AI-driven solutions. Collaborate with domain experts to ensure that AI models and systems align with regulatory and industry standards.
+ Documentation and reporting: Prepare technical documentation, reports, and presentations to effectively communicate AI methodologies, results, and recommendations to both technical and non-technical audiences. Maintain clear and concise documentation of AI models, code, and processes.
+ Stay updated with the latest advancements: Keep abreast of the latest advancements in AI, machine learning, and industry trends. Stay informed about regulatory guidelines, data privacy, and ethical considerations related to AI applications in the Retail domain.
+
+What you’ll bring:
+
+ Bachelor's degree in Computer Science, Computer Engineering or a technical field
+ At least 9 years of experience designing and building distributed computing/HPC and large-scale ML systems
+ At least 6 years of experience developing AI/ML algorithms in Python or C/C++
+ At least 3 years of experience with the full ML development lifecycle using open-source AI/ML frameworks and public cloud.
+
+Preferred Qualifications: 
+Required 15+ of experience 
+
+ Master's degree or PhD in Engineering, Computer Science, a related technical field, or equivalent practical experience with a focus on modern AI techniques.
+ Experience designing large-scale distributed platforms and/or systems in cloud environments such as Azure, or GCP.
+ Experience architecting cloud systems for security, availability, performance, scalability, and cost.
+ Experience with delivering very large models through the MLOps life cycle from exploration to serving.
+ Experience with building GPU clusters in the public cloud with tightly-coupled storage and networking.
+ Experience with the complete stack for distributed training of large models including ML compilers, distributed training frameworks, and ML development frameworks such as Pytorch, Tensorflow, Lightning etc.
+ Experience with GenAI technology stack including frameworks for prompt engineering, guardrails for GenAI applications, and LLM fine tuning.
+ Experience working with VectorDBs and other data infrastructure required to efficiently support Generative AI training pipelines and production applications.
+ Experience training and maintaining large language models.
+ Authored research publications in top peer-reviewed conferences, or industry-recognized open-source contributions in the space of neural networks, distributed training and SysML
+
+Job Type: Full-time
+Pay: $200,000.00 - $300,073.86 per year
+Experience:
+
+ Principal Software: 10 years (Preferred)
+ LLM: 6 years (Preferred)
+ AI/ML: 4 years (Preferred)
+ Natural language processing: 6 years (Preferred)
+
+Work Location: In person
+URL: https://www.indeed.com/rc/clk?jk=098cea2d32263176&from=jasx&tk=1hk9tpothiqvq801&vjs=3
