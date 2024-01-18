@@ -1,15 +1,32 @@
 import json 
+from database import jobs, connect_and_create, commit
 
-file = open('indeed_jobs.json')
-data = json.load(file)
+def get_data():
+    file = open('indeed_jobs.json')
+    data = json.load(file)
+    return data
 
-for job in data:
-    job_title = job['positionName']
-    company = job['company']
-    job_description = job['description']
-    job_url = job['url']
-    print(f'Position name: {job_title}')
-    print(f'Company: {company}')
-    print(f'Job description: {job_description}')
-    print(f'URL: {job_url}')
-    break
+if __name__ == '__main__':
+    ## Get the parsed jobs data from dataset
+    data = get_data()
+
+    ## Create and connect to the database
+    engine, session = connect_and_create()
+    table = jobs
+
+    ## Add to database
+    for job in data:
+        # If the record already doesn't exist
+        #if session.query(table).filter_by(**filter_logic).scalar() is None:
+        job_id = job['id']
+        posting_date = job['postingDateParsed']
+        job_title = job['positionName']
+        company = job['company']
+        job_description = job['description'][:9999]
+        job_url = job['url']
+
+        # Create a new database entry
+        entry = jobs(id=job_id, date=posting_date, title=job_title, company=company, description=job_description, url=job_url)
+        commit(session = session, entry = entry)
+
+        print(f'Inserted into database: {entry}')
