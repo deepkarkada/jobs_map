@@ -6,9 +6,17 @@ from sqlalchemy.orm import sessionmaker
 Base = declarative_base()
 
 ## sql config
+# mysql_config = {
+#     'host': 'localhost',
+#     'port': 4001,
+#     'user': 'root',
+#     'pw': '',
+#     'db': 'jobsdb'
+# }
+
 mysql_config = {
-    'host': 'localhost',
-    'port': 4001,
+    'host': 'jobs_map-db-1',
+    'port': 3306,
     'user': 'root',
     'pw': '',
     'db': 'jobsdb'
@@ -30,9 +38,14 @@ def connect_and_create():
     pw = mysql_config['pw']
     db = mysql_config['db']
     engine = create_engine('mysql://{}:{}@{}:{}/{}'.format(user, pw, host, port, db))
+    #engine = create_engine('mysql://root@jobs_map-db-1:3306'.format(user, host, port))
+    engine.execute(f"CREATE DATABASE IF NOT EXISTS {db};") #create db
     Session = sessionmaker(bind=engine)
     session = Session()
-    Base.metadata.create_all(bind=engine)
+
+    ## Ref: https://stackoverflow.com/questions/19175311/how-to-create-only-one-table-with-sqlalchemy
+    table_objects = [Base.metadata.tables["jobs"]]
+    Base.metadata.create_all(bind=engine, tables=table_objects)
     return engine, session
 
 def commit(session, entry):
