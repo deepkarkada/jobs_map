@@ -10,3 +10,27 @@ services:
       build: auth
       ports:
           - "5002:5002"
+    
+    db:
+      image: mysql
+      container_name: jobs_map-db-1
+      ports:
+          - "3306:3306"
+      environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    
+    scraper:
+      build: scraper
+      depends_on:
+        - db
+      ports:
+          - "5003:5003"
+    
+    job_server:
+      build: job_server
+      depends_on:
+        - scraper
+      ports:
+          - "5004:5004"
+
+    
