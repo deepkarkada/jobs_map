@@ -38,5 +38,12 @@ services:
         - scraper
       ports:
           - "5004:5004"
+    
+    llm_server:
+      build: llm_server
+      depends_on:
+        - job_server
+      ports:
+          - "5005:5005"
 
     

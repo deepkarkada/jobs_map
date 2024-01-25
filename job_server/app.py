@@ -54,6 +54,8 @@ def get_response(text):
     return response.choices[0].message.content
 
 
+## Ref: https://dhruvadave5297.medium.com/demo-application-for-background-processing-with-rabbitmq-python-flask-c3402bdcf7f0
+
 def add_task(task):
     task = task['label']
     print(f'Rabbitmq got input: {task}')
