@@ -1,4 +1,5 @@
 import os
+import pika
 import gradio as gr
 import pandas as pd
 import sqlalchemy as sql
@@ -52,6 +53,30 @@ def get_response(text):
     )
     return response.choices[0].message.content
 
+
+def add_task(task):
+    task = task['label']
+    print(f'Rabbitmq got input: {task}')
+    try:
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host="rabbitmq"))
+    except pika.exceptions.AMQPConnectionError as exc:
+        print("Failed to connect to RabbitMQ service. Message wont be sent.")
+        return
+
+    channel = connection.channel()
+    channel.queue_declare(queue='task_queue', durable=True)
+    channel.basic_publish(
+        exchange='',
+        routing_key='task_queue',
+        body=task,
+        properties=pika.BasicProperties(
+            delivery_mode=2,  # make message persistent
+        ))
+   
+    connection.close()
+    print(f'__Sent task: {task} to rabbitmq queue')
+    #return f" ___ Sent: {task}"
+
 with gr.Blocks() as demo:
     with gr.Row():
             gr.Markdown("Company")
@@ -66,8 +91,18 @@ with gr.Blocks() as demo:
             gr.Markdown(f"{row['description']}")
             responses = get_response(row['description'])
             responses = responses.split(']')[0].split('[')[-1].split(',')
-            #print(f'Response: {responses}')
-            gr.Radio(choices=[response.lstrip("'").rstrip("'") for response in responses], label="tasks")
+            #gr.Radio(choices=[response.lstrip("'").rstrip("'") for response in responses], label="tasks").input(add_task)
+            for i, response in enumerate(responses):
+                response = response.strip("'")
+                #btn = gr.Button(f'{response}', label=f"tasks_{i}")
+                # btn = gr.Button(f'{response}')
+                # btn.click(add_task, inputs=[response], outputs=[])
+                
+                # radio = gr.Radio(choices=[response.strip("'")], value=None, label=f"tasks_{i}")
+                # radio.change(add_task, radio, outputs=[])
+                tsk = gr.Label(label=response, value=response, visible=False)
+                chkbx = gr.Checkbox(label=[response], value=None)
+                chkbx.select(add_task, tsk, outputs=[])
         
         ## For testing purposes
         if index == 2:
