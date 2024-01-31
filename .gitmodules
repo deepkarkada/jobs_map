@@ -1,0 +1,3 @@
+[submodule "llama2-webui"]
+	path = llama2-webui
+	url = https://github.com/liltom-eth/llama2-webui.git

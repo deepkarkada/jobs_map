@@ -4,6 +4,9 @@ import gradio as gr
 import pandas as pd
 import sqlalchemy as sql
 
+import warnings
+warnings.filterwarnings("ignore")
+
 ## toy implementation to see gradio is working
 # def greet(name, intensity):
 #     return "Hello " * intensity + name + "!"

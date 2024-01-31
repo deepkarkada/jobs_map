@@ -45,5 +45,12 @@ services:
         - job_server
       ports:
           - "5005:5005"
+    
+    llama2-webui:
+      build: llama2-webui
+      depends_on:
+        - llm_server
+      ports:
+          - "5006:5006"
 
     
